@@ -1,3 +1,5 @@
 <template>
-  Hello ウイスキー
+  <div text-4xl>
+    Hello ウイスキー
+  </div>
 </template>
