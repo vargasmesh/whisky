@@ -5,4 +5,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
   ],
   css: ["@unocss/reset/tailwind-compat.css"],
+  routeRules: {
+    "/": { prerender: true }
+  }
 })

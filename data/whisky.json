@@ -1,10 +1,22 @@
 {
   "whiskies": [
     {
-      "name": "The Glenlivet Founder's Reserve Whisky Single Malt",
+      "name": "Founder's Reserve Whisky Single Malt",
       "brand": "The Glenlivet",
       "nose": ["pineapple"],
       "palate": ["sweet", "fruity"]
+    },
+    {
+      "name": "Coffey Grain",
+      "brand": "Nikka",
+      "nose": [""],
+      "palate": [""]
+    },
+    {
+      "name": "Sakura Wood",
+      "brand": "Kamiki",
+      "nose": ["flower"],
+      "palate": [""]
     }
   ]
 }
