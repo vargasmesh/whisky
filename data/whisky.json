@@ -1,0 +1,10 @@
+{
+  "whiskies": [
+    {
+      "name": "The Glenlivet Founder's Reserve Whisky Single Malt",
+      "brand": "The Glenlivet",
+      "nose": ["pineapple"],
+      "palate": ["sweet", "fruity"]
+    }
+  ]
+}
