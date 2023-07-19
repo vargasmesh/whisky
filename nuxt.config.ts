@@ -9,5 +9,8 @@ export default defineNuxtConfig({
   css: ["@unocss/reset/tailwind-compat.css"],
   routeRules: {
     "/": { prerender: true }
+  },
+  headlessui: {
+    prefix: 'H',
   }
 })
