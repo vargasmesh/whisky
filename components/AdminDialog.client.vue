@@ -24,7 +24,7 @@ import { useAdminStore } from "~/stores/admin";
 
 const store = useAdminStore()
 const clientId = useRuntimeConfig().public.clientId
-const loginURL = `https://github.com/login/oauth/authorize?client_id=${clientId}`
+const loginURL = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${window.location.origin}/oauth/login`
 
 const closeDialog = () => {
     store.dialogOpen = false
