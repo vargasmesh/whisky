@@ -8,9 +8,16 @@ export default defineNuxtConfig({
   ],
   css: ["@unocss/reset/tailwind-compat.css"],
   routeRules: {
-    "/": { prerender: true }
+    "/": { prerender: true },
+    '/oauth/login': { ssr: false },
   },
   headlessui: {
     prefix: 'H',
+  },
+  runtimeConfig: {
+    clientSecret: '',
+    public: {
+      clientId: ''
+    }
   }
 })

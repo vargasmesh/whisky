@@ -10,7 +10,8 @@
                     enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 scale-95" as="template">
                     <HDialogPanel class="w-full max-w-sm max-h-2xl rounded bg-white">
-                        <HDialogTitle>Hello</HDialogTitle>
+                        <a v-if="!store.isLoggedIn" :href="loginURL">Login</a>
+                        <div v-else>Hello</div>
                     </HDialogPanel>
                 </HTransitionChild>
             </div>
@@ -22,6 +23,8 @@
 import { useAdminStore } from "~/stores/admin";
 
 const store = useAdminStore()
+const clientId = useRuntimeConfig().public.clientId
+const loginURL = `https://github.com/login/oauth/authorize?client_id=${clientId}`
 
 const closeDialog = () => {
     store.dialogOpen = false
