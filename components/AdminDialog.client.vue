@@ -11,7 +11,9 @@
                     leave-to="opacity-0 scale-95" as="template">
                     <HDialogPanel class="w-full max-w-sm max-h-2xl rounded bg-white">
                         <a v-if="!store.isLoggedIn" :href="loginURL">Login</a>
-                        <div v-else>Hello</div>
+                        <div v-else>
+                            <WhiskyForm />
+                        </div>
                     </HDialogPanel>
                 </HTransitionChild>
             </div>
