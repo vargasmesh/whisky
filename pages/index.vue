@@ -16,21 +16,7 @@
             <div border-b-2 border-b-black mx-1 md:mx-0>香り</div>
             <div border-b-2 border-b-black mx-1 md:mx-0>味覚</div>
         </div>
-        <div v-for="whisky in whiskies" grid grid-cols-4 py-3 text-sm px-1 md:px-0 border-b border-b-gray-300
-            md:border-b-none>
-            <div px-4>
-                {{ whisky.name }}
-            </div>
-            <div px-4>
-                {{ whisky.brand }}
-            </div>
-            <div px-4>
-                {{ whisky.nose.join(', ') }}
-            </div>
-            <div px-4>
-                {{ whisky.palate.join(', ') }}
-            </div>
-        </div>
+        <WhiskyRow v-for="whisky in whiskies" :whisky="whisky" />
     </div>
 </template>
 
@@ -39,6 +25,7 @@
 <script setup>
 import { whiskies } from '~/data/whisky.json'
 import { useAdminStore } from "~/stores/admin";
+import WhiskyRow from '../components/WhiskyRow.vue';
 
 const store = useAdminStore()
 
