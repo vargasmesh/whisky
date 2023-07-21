@@ -11,10 +11,10 @@
     </nav>
     <div container mx-auto mt-8>
         <div grid grid-cols-4 font-bold text-center>
-            <div border-b-2 border-b-black mx-1 md:mx-0>ウイスキー</div>
-            <div border-b-2 border-b-black mx-1 md:mx-0>銘柄</div>
-            <div border-b-2 border-b-black mx-1 md:mx-0>香り</div>
-            <div border-b-2 border-b-black mx-1 md:mx-0>味覚</div>
+            <TableHeader>ウイスキー</TableHeader>
+            <TableHeader>銘柄</TableHeader>
+            <TableHeader>香り</TableHeader>
+            <TableHeader>味覚</TableHeader>
         </div>
         <WhiskyRow v-for="whisky in whiskies" :whisky="whisky" />
     </div>
