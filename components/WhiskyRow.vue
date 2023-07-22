@@ -28,8 +28,8 @@ const { whisky } = defineProps<{
 const store = useAdminStore()
 
 const selectWhisky = () => {
-    store.whisky = whisky
-    store.dialogOpen = true
+    if (!store.isLoggedIn) return
+    store.selectWhisky(whisky)
 }
 
 </script>
