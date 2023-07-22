@@ -1,4 +1,5 @@
-import { whiskies } from '~/data/whisky.json'
+import { randomUUID } from 'crypto'
+import * as db from '~/data/whisky.json'
 
 export default defineEventHandler(async (event) => {
     const access_token = getCookie(event, 'access_token')
@@ -9,7 +10,16 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const { id, name, brand, nose, palate } = await readBody(event)
+    const whiskies = [...db.whiskies]
+    const whisky = await readBody(event)
+    const { id } = whisky
+    if (id) {
+        const index = whiskies.findIndex((whisky) => whisky.id === id)
+        whiskies.splice(index, 1, whisky)
+    } else {
+        whiskies.push({ ...whisky, id: randomUUID() })
+    }
+
 
     return {}
 })
