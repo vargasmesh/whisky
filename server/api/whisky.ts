@@ -9,14 +9,7 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const { name, brand } = await readBody(event)
-
-    const updatedWhiskyArray = [...whiskies, {
-        name,
-        brand,
-        nose: [],
-        palate: [],
-    }]
+    const { id, name, brand, nose, palate } = await readBody(event)
 
     return {}
 })

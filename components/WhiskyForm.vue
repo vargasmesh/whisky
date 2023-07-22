@@ -30,6 +30,7 @@ import { useAdminStore } from "~/stores/admin"
 const store = useAdminStore()
 
 const formData = ref({
+    id: store.whisky?.id ?? null,
     name: store.whisky?.name ?? '',
     brand: store.whisky?.brand ?? '',
     nose: store.whisky?.nose.join(', ') ?? '',
@@ -37,7 +38,13 @@ const formData = ref({
 })
 
 const body = computed(() => {
-    return JSON.stringify(formData.value)
+    return JSON.stringify({
+        id: formData.value.id,
+        name: formData.value.name,
+        brand: formData.value.brand,
+        nose: formData.value.nose.split(',').map((s) => s.trim()),
+        palate: formData.value.palate.split(',').map((s) => s.trim()),
+    })
 })
 
 const { execute } = useFetch('/api/whisky', {
