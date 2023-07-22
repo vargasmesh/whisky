@@ -4,22 +4,35 @@
       "id": "27dea724-af28-43b8-b91c-b907c0fc4758",
       "name": "Founder's Reserve Whisky Single Malt",
       "brand": "The Glenlivet",
-      "nose": ["pineapple"],
-      "palate": ["sweet", "fruity"]
+      "nose": [
+        "pineapple"
+      ],
+      "palate": [
+        "sweet",
+        "fruity"
+      ]
     },
     {
       "id": "76748ddc-3b3a-4740-a695-e73bdbf29d49",
       "name": "Coffey Grain",
       "brand": "Nikka",
-      "nose": [""],
-      "palate": [""]
+      "nose": [
+        ""
+      ],
+      "palate": [
+        "perfume"
+      ]
     },
     {
       "id": "fa622d7a-9eef-4e07-a2f9-c7455ccfb178",
       "name": "Sakura Wood",
       "brand": "Kamiki",
-      "nose": ["flower"],
-      "palate": [""]
+      "nose": [
+        "flower"
+      ],
+      "palate": [
+        ""
+      ]
     }
   ]
 }
