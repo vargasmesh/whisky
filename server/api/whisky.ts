@@ -1,6 +1,8 @@
 import { randomUUID } from 'crypto'
 import * as db from '~/data/whisky.json'
 
+const branch = process.env.NUXT_ENV_VERCEL_GIT_REPO_SLUG
+
 export default defineEventHandler(async (event) => {
     const access_token = getCookie(event, 'access_token')
     if (!access_token) {
@@ -10,7 +12,7 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const remoteData = await fetch(`https://api.github.com/repos/vargasmesh/whisky/contents/data/whisky.json?ref=update-whisky-db`, {
+    const remoteData = await fetch(`https://api.github.com/repos/vargasmesh/whisky/contents/data/whisky.json?ref=${branch}`, {
         headers: {
             'Accept': 'application/vnd.github+json',
             'Authorization': `Bearer ${access_token}`,
@@ -35,7 +37,7 @@ export default defineEventHandler(async (event) => {
     const body = JSON.stringify({
         message: 'feat: update whisky list',
         content: encoded,
-        branch: 'update-whisky-db',
+        branch,
         sha,
     })
 
