@@ -1,5 +1,5 @@
 <template>
-    <Dialog :show="store.dialogOpen" :close="closeDialog">
+    <Dialog :show="store.dialogOpen" :close="store.closeDialog">
         <HDialogPanel class="w-full max-w-sm rounded bg-white flex justify-center px-4 py-10">
             <div w-full>
                 <a v-if="!store.isLoggedIn" :href="loginURL">Login</a>
@@ -17,10 +17,6 @@ import { useAdminStore } from "~/stores/admin";
 const store = useAdminStore()
 const clientId = useRuntimeConfig().public.clientId
 const loginURL = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${window.location.origin}/oauth/login`
-
-const closeDialog = () => {
-    store.dialogOpen = false
-}
 
 window.addEventListener('keydown', (e) => {
     if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {

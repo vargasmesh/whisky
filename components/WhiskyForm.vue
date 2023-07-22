@@ -9,21 +9,26 @@
                 <label for="whisky_brand">Brand</label>
                 <input name="whisky_brand" v-model="formData.brand" w-full />
             </div>
-            <button type="submit">Add Whisky</button>
+            <button type="submit">
+                {{ store.whisky ? 'Update' : 'Add Whisky' }}
+            </button>
         </fieldset>
     </form>
 </template>
 
 <script setup lang="ts">
+import { useAdminStore } from "~/stores/admin"
+
+const store = useAdminStore()
+
 const formData = ref({
-    name: '',
-    brand: '',
+    name: store.whisky?.name ?? '',
+    brand: store.whisky?.brand ?? '',
 })
 
 const body = computed(() => {
     return JSON.stringify(formData.value)
 })
-
 
 const { execute } = useFetch('/api/whisky', {
     method: 'POST',

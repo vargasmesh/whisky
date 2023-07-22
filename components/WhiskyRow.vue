@@ -1,7 +1,7 @@
 <template>
     <div grid grid-cols-4 py-3 text-sm px-1 md:px-0 border-b border-b-gray-300 md:border-b-none :class="{
         'hover:bg-black/10': store.isLoggedIn
-    }">
+    }" @click="selectWhisky">
         <div px-4>
             {{ whisky.name }}
         </div>
@@ -26,5 +26,10 @@ const { whisky } = defineProps<{
 }>()
 
 const store = useAdminStore()
+
+const selectWhisky = () => {
+    store.whisky = whisky
+    store.dialogOpen = true
+}
 
 </script>
