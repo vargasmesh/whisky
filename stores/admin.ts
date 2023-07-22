@@ -7,8 +7,8 @@ export const useAdminStore = defineStore('admin', () => {
     const isLoggedIn = ref(false)
     const whisky = ref<Whisky | null>(null)
 
-    function selectWhisky(whisky: Whisky) {
-        whisky = whisky
+    function selectWhisky(w: Whisky) {
+        whisky.value = w
         dialogOpen.value = true
     }
 
