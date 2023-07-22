@@ -24,18 +24,6 @@
 
 <script setup>
 import { whiskies } from '~/data/whisky.json'
-import { useAdminStore } from "~/stores/admin";
 import WhiskyRow from '../components/WhiskyRow.vue';
-
-const store = useAdminStore()
-
-const { status } = useFetch('/api/me', {
-    method: 'GET',
-    watch: false,
-})
-
-if (status.value === "success") {
-    store.isLoggedIn = true
-}
 
 </script>

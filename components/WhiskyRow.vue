@@ -1,5 +1,7 @@
 <template>
-    <div grid grid-cols-4 py-3 text-sm px-1 md:px-0 border-b border-b-gray-300 md:border-b-none>
+    <div grid grid-cols-4 py-3 text-sm px-1 md:px-0 border-b border-b-gray-300 md:border-b-none :class="{
+        'hover:bg-black/10': store.isLoggedIn
+    }">
         <div px-4>
             {{ whisky.name }}
         </div>
@@ -17,8 +19,12 @@
 
 <script setup lang="ts">
 import { Whisky } from '../lib/whisky';
+import { useAdminStore } from "~/stores/admin"
+
 const { whisky } = defineProps<{
     whisky: Whisky
 }>()
+
+const store = useAdminStore()
 
 </script>
