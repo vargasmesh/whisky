@@ -1,9 +1,8 @@
 import { randomUUID } from 'crypto'
 import * as db from '~/data/whisky.json'
 
-const branch = process.env.NUXT_ENV_VERCEL_GIT_REPO_SLUG
-
 export default defineEventHandler(async (event) => {
+    const branch = process.env.VERCEL_GIT_COMMIT_REF
     const access_token = getCookie(event, 'access_token')
     if (!access_token) {
         throw createError({
