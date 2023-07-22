@@ -10,6 +10,16 @@ export default defineEventHandler(async (event) => {
         })
     }
 
+    const remoteData = await fetch(`https://api.github.com/repos/vargasmesh/whisky/contents/data/whisky.json?ref=update-whisky-db`, {
+        headers: {
+            'Accept': 'application/vnd.github+json',
+            'Authorization': `Bearer ${access_token}`,
+            'X-GitHub-Api-Version': '2022-11-28'
+        },
+    })
+
+    const { sha } = await remoteData.json()
+
     const whiskies = [...db.whiskies]
     const whisky = await readBody(event)
     const { id } = whisky
@@ -20,6 +30,27 @@ export default defineEventHandler(async (event) => {
         whiskies.push({ ...whisky, id: randomUUID() })
     }
 
+    const payload = JSON.stringify({ whiskies }, null, 2)
+    const encoded = Buffer.from(payload).toString('base64')
+    const body = JSON.stringify({
+        message: 'feat: update whisky list',
+        content: encoded,
+        branch: 'update-whisky-db',
+        sha,
+    })
 
-    return {}
+    const response = await fetch(`https://api.github.com/repos/vargasmesh/whisky/contents/data/whisky.json`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/vnd.github+json',
+            'Authorization': `Bearer ${access_token}`,
+            'X-GitHub-Api-Version': '2022-11-28'
+        },
+        body
+    })
+
+    const ret = await response.text()
+
+    return ret
 })
+
