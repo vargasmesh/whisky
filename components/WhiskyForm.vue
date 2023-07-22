@@ -9,6 +9,14 @@
                 <label for="whisky_brand">Brand</label>
                 <input name="whisky_brand" v-model="formData.brand" w-full />
             </div>
+            <div flex gap-2>
+                <label for="whisky_palate">Palate</label>
+                <textarea name="whisky_palate" v-model="formData.palate" w-full />
+            </div>
+            <div flex gap-2>
+                <label for="whisky_nose">Nose</label>
+                <textarea name="whisky_nose" v-model="formData.nose" w-full />
+            </div>
             <button type="submit">
                 {{ store.whisky ? 'Update' : 'Add Whisky' }}
             </button>
@@ -24,6 +32,8 @@ const store = useAdminStore()
 const formData = ref({
     name: store.whisky?.name ?? '',
     brand: store.whisky?.brand ?? '',
+    nose: store.whisky?.nose.join(', ') ?? '',
+    palate: store.whisky?.palate.join(', ') ?? '',
 })
 
 const body = computed(() => {
