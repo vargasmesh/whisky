@@ -3,11 +3,11 @@
         <fieldset flex flex-col gap-2 p-4>
             <div flex gap-2>
                 <label for="whisky_name">Name</label>
-                <input name="whisky_name" v-model="formData.name" />
+                <input name="whisky_name" v-model="formData.name" w-full />
             </div>
             <div flex gap-2>
                 <label for="whisky_brand">Brand</label>
-                <input name="whisky_brand" v-model="formData.brand" />
+                <input name="whisky_brand" v-model="formData.brand" w-full />
             </div>
             <button type="submit">Add Whisky</button>
         </fieldset>
